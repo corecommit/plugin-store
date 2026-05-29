@@ -7,6 +7,7 @@ Community plugin repository for [Infinite Yield](https://github.com/YeildFE/infi
 ```
 plugins/         — Individual .iy plugin files
 plugins.json     — Plugin manifest (name, author, description, download URL)
+pluginstore.iy   — Actual Plugin used in infinite yeild
 ```
 
 ## Submitting a Plugin
