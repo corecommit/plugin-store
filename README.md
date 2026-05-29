@@ -7,7 +7,7 @@ Community plugin repository for [Infinite Yield](https://github.com/EdgeIY/infin
 ```
 plugins/         — Individual .iy plugin files
 plugins.json     — Plugin manifest (name, author, description, download URL)
-pluginstore.iy   — Actual Plugin used in infinite yeild
+pluginstore.iy   — Core plugin that powers the in-game store UI, handles plugin fetching, search, and installation
 ```
 
 ## Submitting a Plugin
