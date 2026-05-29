@@ -1,0 +1,7 @@
+# Temp scripts
+gen_descriptions.py
+fix_bad_descriptions.py
+check_bad.py
+check_overlaps.py
+fix_remaining.py
+verify.py
