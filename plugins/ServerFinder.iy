@@ -7,7 +7,7 @@ return {
       ["Description"] = "shows every server to see which one fits you most",
       ["Aliases"] = {"sfinder","serverfind"},
       ["Function"] = function(args, speaker)
-          loadstring(game:HttpGet("https://raw.githubusercontent.com/MaxproGlitcher/Finds-Servers/refs/heads/main/Finds%20Servers%20Code"))()
+          loadstring(game:HttpGet("https://raw.githubusercontent.com/MaxproGlitcher/Server-Finder-Deluxe/refs/heads/main/Finder_Servers_Code.luau"))()
       end
     }
   }
