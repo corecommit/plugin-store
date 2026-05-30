@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   sync:
@@ -29,8 +30,6 @@ jobs:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           DISCORD_CHANNEL_ID: "551846012310782014"
           GITHUB_REPOSITORY: ${{ github.repository }}
-          CUTOFF_DATE: "2026-05-29"
-          # Persisted across runs so we only fetch messages we haven't seen
           LAST_MESSAGE_ID: ${{ vars.LAST_MESSAGE_ID }}
         run: python scripts/discord_sync.py
 
