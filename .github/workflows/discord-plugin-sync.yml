@@ -1,0 +1,50 @@
+name: Discord Plugin Sync
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # every 30 minutes
+  workflow_dispatch:          # allow manual trigger from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests --quiet
+
+      - name: Fetch new plugins from Discord
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_CHANNEL_ID: "551846012310782014"
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          CUTOFF_DATE: "2026-05-29"
+          # Persisted across runs so we only fetch messages we haven't seen
+          LAST_MESSAGE_ID: ${{ vars.LAST_MESSAGE_ID }}
+        run: python scripts/discord_sync.py
+
+      - name: Save last processed message ID
+        if: env.NEW_LAST_MESSAGE_ID != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh variable set LAST_MESSAGE_ID --body "$NEW_LAST_MESSAGE_ID"
+
+      - name: Commit new plugins and updated manifest
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add plugins/ plugins.json
+          git diff --cached --quiet || git commit -m "chore: add plugins from Discord [skip ci]"
+          git push
