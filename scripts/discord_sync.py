@@ -139,8 +139,14 @@ def main() -> None:
                 filename += ".iy"
 
             if filename in existing_names:
-                print(f"  ⚠️  {filename} already in plugins.json — skipping.")
-                continue
+                existing = next(e for e in entries if e["name"] == filename)
+                existing_msg_id = int(existing.get("message_id", 0))
+                if int(msg_id) <= existing_msg_id:
+                    print(f"  ⏭  {filename} already up to date — skipping.")
+                    continue
+                print(f"  🔄  {filename} has a newer version — overwriting…")
+                entries[:] = [e for e in entries if e["name"] != filename]
+                existing_names.discard(filename)
 
             dest = PLUGINS_DIR / filename
             print(f"  ⬇️  Downloading {filename} (by {author}, {msg_datetime.date()})…")
@@ -171,6 +177,7 @@ def main() -> None:
                 "name":        filename,
                 "description": description,
                 "url":         url,
+                "message_id":  msg_id,
             }
 
             entries.insert(0, entry)
