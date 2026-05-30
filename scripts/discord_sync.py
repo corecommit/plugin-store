@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import sys
 import time
 from datetime import date, datetime, timezone, timedelta
@@ -93,6 +94,9 @@ def main() -> None:
     repo         = os.environ.get("GITHUB_REPOSITORY", "unknown/plugin-store")
     last_msg_id  = os.environ.get("LAST_MESSAGE_ID", "").strip() or None
 
+    if last_msg_id == "0":
+        last_msg_id = None
+
     PLUGINS_DIR.mkdir(exist_ok=True)
 
     print(f"🔍  Fetching messages from channel {channel_id}"
@@ -152,7 +156,6 @@ def main() -> None:
             description = ""
             try:
                 text = dest.read_text(encoding="utf-8", errors="replace")
-                import re
                 for line in text.splitlines()[:30]:
                     stripped = line.strip().lstrip("-").lstrip("#").strip()
                     m = re.match(r"@desc(?:ription)?\s+(.+)", stripped, re.IGNORECASE)
