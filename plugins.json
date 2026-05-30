@@ -1,5 +1,11 @@
 [
   {
+    "author": "Equs",
+    "name": "pluginstore.iy",
+    "description": "pluginstore.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/pluginstore.iy"
+  },
+  {
     "author": "steamuser9483",
     "name": "StopSound.iy",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/StopSound.iy",
