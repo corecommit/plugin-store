@@ -92,10 +92,8 @@ def author_from_message(msg: dict) -> str:
 def main() -> None:
     channel_id   = os.environ["DISCORD_CHANNEL_ID"]
     repo         = os.environ.get("GITHUB_REPOSITORY", "unknown/plugin-store")
-    last_msg_id  = os.environ.get("LAST_MESSAGE_ID", "").strip() or None
-
-    if last_msg_id == "0":
-        last_msg_id = None
+    cursor_file = Path(".last_message_id")
+    last_msg_id = cursor_file.read_text().strip() if cursor_file.exists() else None
 
     PLUGINS_DIR.mkdir(exist_ok=True)
 
@@ -187,12 +185,8 @@ def main() -> None:
     else:
         print("✅  No new .iy plugins found in new messages.")
 
-    # Tell the workflow the new cursor value via an env file
     if new_last_id and new_last_id != last_msg_id:
-        env_file = os.environ.get("GITHUB_ENV", "")
-        if env_file:
-            with open(env_file, "a") as f:
-                f.write(f"NEW_LAST_MESSAGE_ID={new_last_id}\n")
+        Path(".last_message_id").write_text(new_last_id)
         print(f"📌  Cursor advanced to message {new_last_id}")
 
 
