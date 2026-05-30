@@ -7,9 +7,6 @@ from pathlib import Path
 
 import requests
 
-from dotenv import load_dotenv
-load_dotenv()
-
 # ── Config ────────────────────────────────────────────────────────────────────
 DISCORD_API   = "https://discord.com/api/v10"
 PLUGINS_DIR   = Path("plugins")
