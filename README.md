@@ -20,7 +20,7 @@ pluginstore.iy   — Core plugin that powers the in-game store UI, handles plugi
   "author": "yourname",
   "name": "YourPlugin.iy",
   "description": "What your plugin does."
-  "url": "https://raw.githubusercontent.com/YeildFE/plugin-store/main/plugins/YourPlugin.iy",
+  "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/YourPlugin.iy",
 }
 ```
 
