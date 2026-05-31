@@ -2,14 +2,14 @@
   {
     "author": "h",
     "name": "sigmasedit.iy",
-    "description": "sigmasedit.iy plugin for Infinite Yield",
+    "description": "an interesting edit i saw on twitter out of all places, triggers randomly based on ur input",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/sigmasedit.iy",
     "message_id": "1510579733052788867"
   },
   {
     "author": "Equs",
     "name": "pluginstore.iy",
-    "description": "pluginstore.iy plugin for Infinite Yield",
+    "description": "Search for any plugin you want to install and click on the plugin",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/pluginstore.iy"
   },
   {
