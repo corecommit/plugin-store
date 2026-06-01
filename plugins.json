@@ -2,7 +2,7 @@
   {
     "author": "SteamUser#9483",
     "name": "HealthESP.iy",
-    "description": "HealthESP.iy plugin for Infinite Yield",
+    "description": "Allows you to better visualize the health of players if you're looking to do some kill stealing",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/HealthESP.iy",
     "message_id": "1510893434045464668"
   },
@@ -16,7 +16,7 @@
   {
     "author": "h",
     "name": "sigmasedit.iy",
-    "description": "an interesting edit i saw on twitter out of all places, triggers randomly based on ur input",
+    "description": "An interesting edit i saw on twitter out of all places, triggers randomly based on ur input",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/sigmasedit.iy",
     "message_id": "1510579733052788867"
   },
