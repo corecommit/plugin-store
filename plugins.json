@@ -1,17 +1,17 @@
 [
   {
+    "author": "h",
+    "name": "uwuify.iy",
+    "description": "uwuify.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/uwuify.iy",
+    "message_id": "1510928526507773952"
+  },
+  {
     "author": "SteamUser#9483",
     "name": "HealthESP.iy",
     "description": "Allows you to better visualize the health of players if you're looking to do some kill stealing",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/HealthESP.iy",
     "message_id": "1510893434045464668"
-  },
-  {
-    "author": "h",
-    "name": "uwuify.iy",
-    "description": "uwuify (based on cutestring()) spices ur chat for some reason",
-    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/uwuify.iy",
-    "message_id": "1510754087078072540"
   },
   {
     "author": "h",
