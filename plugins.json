@@ -1,6 +1,13 @@
 [
   {
     "author": "h",
+    "name": "uwuify.iy",
+    "description": "uwuify.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/uwuify.iy",
+    "message_id": "1510754087078072540"
+  },
+  {
+    "author": "h",
     "name": "sigmasedit.iy",
     "description": "an interesting edit i saw on twitter out of all places, triggers randomly based on ur input",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/sigmasedit.iy",
