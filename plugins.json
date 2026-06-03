@@ -1,5 +1,19 @@
 [
   {
+    "author": "Agent666_0",
+    "name": "WelderRemake.iy",
+    "description": "WelderRemake.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/WelderRemake.iy",
+    "message_id": "1511469026352697464"
+  },
+  {
+    "author": "h",
+    "name": "cmdBarSuggestion.iy",
+    "description": "cmdBarSuggestion.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/cmdBarSuggestion.iy",
+    "message_id": "1511436269719126090"
+  },
+  {
     "author": "openbridge",
     "name": "uwuify.iy",
     "description": "spices up your chat messages for no reason",
