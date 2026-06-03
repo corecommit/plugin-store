@@ -42,12 +42,6 @@
     "message_id": "1510579733052788867"
   },
   {
-    "author": "Equs",
-    "name": "pluginstore.iy",
-    "description": "Search for any plugin you want to install and click on the plugin",
-    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/pluginstore.iy"
-  },
-  {
     "author": "steamuser9483",
     "name": "StopSound.iy",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/StopSound.iy",
