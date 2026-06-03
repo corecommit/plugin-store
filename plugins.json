@@ -7,9 +7,9 @@
     "message_id": "1511469026352697464"
   },
   {
-    "author": "h",
+    "author": "openbridge",
     "name": "cmdBarSuggestion.iy",
-    "description": "cmdBarSuggestion.iy plugin for Infinite Yield",
+    "description": "Attempts to predict your next command and autofill for you",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/cmdBarSuggestion.iy",
     "message_id": "1511436269719126090"
   },
