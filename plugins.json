@@ -1,5 +1,12 @@
 [
   {
+    "author": "Dazy",
+    "name": "FeatherFalling.iy",
+    "description": "FeatherFalling.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/FeatherFalling.iy",
+    "message_id": "1511663093611237507"
+  },
+  {
     "author": "Agent666_0",
     "name": "WelderRemake.iy",
     "description": "Remake of old welder.iy script",
