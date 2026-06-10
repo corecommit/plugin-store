@@ -1,5 +1,40 @@
 [
   {
+    "author": "! FurryBoy",
+    "name": "toggle_chat.iy",
+    "description": "toggle_chat.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/toggle_chat.iy",
+    "message_id": "1514194222582992927"
+  },
+  {
+    "author": "! FurryBoy",
+    "name": "VoiceChatBypass.iy",
+    "description": "VoiceChatBypass.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/VoiceChatBypass.iy",
+    "message_id": "1514193210832846949"
+  },
+  {
+    "author": "! FurryBoy",
+    "name": "KeepIYImproved.iy",
+    "description": "KeepIYImproved.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/KeepIYImproved.iy",
+    "message_id": "1514193210832846949"
+  },
+  {
+    "author": "! FurryBoy",
+    "name": "savelogs.iy",
+    "description": "savelogs.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/savelogs.iy",
+    "message_id": "1514193210832846949"
+  },
+  {
+    "author": "𝓜𝓪𝔁…👑",
+    "name": "Fling_Deluxe.iy",
+    "description": "Fling_Deluxe.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/Fling_Deluxe.iy",
+    "message_id": "1513707869974036662"
+  },
+  {
     "author": "SteamUser#9483",
     "name": "ExecutorGUI.iy",
     "description": "For those of you who somehow end up in a situation with only IY and no proper executor.",
@@ -197,12 +232,6 @@
     "name": "hoverinventory.iy",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/hoverinventory.iy",
     "description": "hover hoverpoop inventooprytory Hover"
-  },
-  {
-    "author": "andrew.lost",
-    "name": "VoiceChatBypass.iy",
-    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/VoiceChatBypass.iy",
-    "description": "Bypasses VoiceChat, please unmute for the script to work"
   },
   {
     "author": "forkcate",
