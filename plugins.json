@@ -2,35 +2,35 @@
   {
     "author": "! FurryBoy",
     "name": "toggle_chat.iy",
-    "description": "toggle_chat.iy plugin for Infinite Yield",
+    "description": "Enable/Disable Roblox chat window",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/toggle_chat.iy",
     "message_id": "1514194222582992927"
   },
   {
     "author": "! FurryBoy",
     "name": "VoiceChatBypass.iy",
-    "description": "VoiceChatBypass.iy plugin for Infinite Yield",
+    "description": "bypass voice chat suspensions unless you rejoin but won't save you from Roblox listening",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/VoiceChatBypass.iy",
     "message_id": "1514193210832846949"
   },
   {
     "author": "! FurryBoy",
     "name": "KeepIYImproved.iy",
-    "description": "KeepIYImproved.iy plugin for Infinite Yield",
+    "description": "Basically keepiy but better",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/KeepIYImproved.iy",
     "message_id": "1514193210832846949"
   },
   {
     "author": "! FurryBoy",
     "name": "savelogs.iy",
-    "description": "savelogs.iy plugin for Infinite Yield",
+    "description": "It's entire purpose is to save console logs as a file in your exploit workspace",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/savelogs.iy",
     "message_id": "1514193210832846949"
   },
   {
     "author": "𝓜𝓪𝔁…👑",
     "name": "Fling_Deluxe.iy",
-    "description": "Fling_Deluxe.iy plugin for Infinite Yield",
+    "description": "Fling Deluxe, a tool for trolling people in public",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/Fling_Deluxe.iy",
     "message_id": "1513707869974036662"
   },
