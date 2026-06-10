@@ -1,5 +1,12 @@
 [
   {
+    "author": "h",
+    "name": "prideYield.iy",
+    "description": "prideYield.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/prideYield.iy",
+    "message_id": "1514286850649489581"
+  },
+  {
     "author": "! FurryBoy",
     "name": "toggle_chat.iy",
     "description": "Enable/Disable Roblox chat window",
