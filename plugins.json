@@ -1,5 +1,12 @@
 [
   {
+    "author": "dwxdeskgroup",
+    "name": "bounce.iy",
+    "description": "bounce.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/bounce.iy",
+    "message_id": "1516515378312777768"
+  },
+  {
     "author": "sdjmali2211",
     "name": "dexre.iy",
     "description": "Opens a new dex with more features",
