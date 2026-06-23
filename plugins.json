@@ -1,6 +1,13 @@
 [
   {
     "author": "Tony",
+    "name": "scrollfix.iy",
+    "description": "scrollfix.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/scrollfix.iy",
+    "message_id": "1518913887590940752"
+  },
+  {
+    "author": "Tony",
     "name": "bbesp.iy",
     "description": "partesp, BUT using BillBoardGui for tags objects",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/bbesp.iy",
