@@ -1,5 +1,19 @@
 [
   {
+    "author": "Tony",
+    "name": "bbesp.iy",
+    "description": "bbesp.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/bbesp.iy",
+    "message_id": "1518788109863616724"
+  },
+  {
+    "author": "Tony",
+    "name": "mfreecam.iy",
+    "description": "mfreecam.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/mfreecam.iy",
+    "message_id": "1518729293893599302"
+  },
+  {
     "author": "dwxdeskgroup",
     "name": "bounce.iy",
     "description": "Basically makes you bounce in an invisible cage",
