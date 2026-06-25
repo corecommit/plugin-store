@@ -1,5 +1,19 @@
 [
   {
+    "author": "weaponofchoice",
+    "name": "wfcp.iy",
+    "description": "wfcp.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/wfcp.iy",
+    "message_id": "1519709774567178270"
+  },
+  {
+    "author": "Tony",
+    "name": "chatsound.iy",
+    "description": "chatsound.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/chatsound.iy",
+    "message_id": "1519582764066672702"
+  },
+  {
     "author": "Tony",
     "name": "scrollfix.iy",
     "description": "For mobile, cuz it didn't change anything for PC",
@@ -160,12 +174,6 @@
     "name": "npc_control_v1.1.iy",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/npc_control_v1.1.iy",
     "description": "Advanced NPC Control"
-  },
-  {
-    "author": "weapponofchoice",
-    "name": "wfcp.iy",
-    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/wfcp.iy",
-    "description": "a few fun (yet useless) camera plugins"
   },
   {
     "author": "agent6660",
