@@ -2,28 +2,21 @@
   {
     "author": "h",
     "name": "yesMommy.iy",
-    "description": "yesMommy.iy plugin for Infinite Yield",
+    "description": "together for you with a warm and comforting voice from... mommy?",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/yesMommy.iy",
     "message_id": "1522340767845056776"
   },
   {
-    "author": "David",
-    "name": "pluginstore2.iy",
-    "description": "pluginstore2.iy plugin for Infinite Yield",
-    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/pluginstore2.iy",
-    "message_id": "1521766502661886062"
-  },
-  {
     "author": "dwxgoatgroup",
     "name": "emote.iy",
-    "description": "emote.iy plugin for Infinite Yield",
+    "description": "Plays emotes like dance2, laugh etc which aren't on the marketplace ",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/emote.iy",
     "message_id": "1520218128754147339"
   },
   {
     "author": "dwxgoatgroup",
     "name": "cname.iy",
-    "description": "cname.iy plugin for Infinite Yield",
+    "description": "Just changes the name of infinite yeild",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/cname.iy",
     "message_id": "1520218020889366631"
   },
