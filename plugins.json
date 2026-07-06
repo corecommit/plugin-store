@@ -1,5 +1,12 @@
 [
   {
+    "author": "dwxgoatgroup",
+    "name": "jobid.iy",
+    "description": "jobid.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/jobid.iy",
+    "message_id": "1523558282382545027"
+  },
+  {
     "author": "h",
     "name": "yesMommy.iy",
     "description": "together for you with a warm and comforting voice from... mommy?",
