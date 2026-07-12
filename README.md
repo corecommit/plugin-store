@@ -1,6 +1,6 @@
-# Plugin Store
+l# Plugin Store
 
-Community plugin repository for [Infinite Yield](https://github.com/corecommit/infiniteyield). Browse and install plugins in-game with the `pluginstore` command.
+Community plugin repository for [Infinite Yield](https://github.com/EdgeIY/infiniteyield). Browse and install plugins in-game with the `pluginstore` command.
 
 ## Structure
 
