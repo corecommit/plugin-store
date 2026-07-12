@@ -1,5 +1,12 @@
 [
   {
+    "author": "SteamUser#9483",
+    "name": "flingme.iy",
+    "description": "flingme.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/flingme.iy",
+    "message_id": "1525033828169810062"
+  },
+  {
     "author": "dwxgoatgroup",
     "name": "jobid.iy",
     "description": "A plugin to copy and join JobId's",
