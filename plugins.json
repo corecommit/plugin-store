@@ -1,5 +1,12 @@
 [
   {
+    "author": "Felix",
+    "name": "emotemanager.iy",
+    "description": "emotemanager.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/emotemanager.iy",
+    "message_id": "1526012168556777493"
+  },
+  {
     "author": "SteamUser#9483",
     "name": "flingme.iy",
     "description": "Self fling because it feels off being able to find everything but yourself",
