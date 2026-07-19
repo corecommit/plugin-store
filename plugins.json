@@ -1,5 +1,12 @@
 [
   {
+    "author": "Tony",
+    "name": "Bhop.iy",
+    "description": "Bhop.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/Bhop.iy",
+    "message_id": "1528398080657985649"
+  },
+  {
     "author": "Felix",
     "name": "emotemanager.iy",
     "description": "Made by Rocky, tested and improved by Felix",
