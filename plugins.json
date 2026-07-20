@@ -1,5 +1,12 @@
 [
   {
+    "author": "Felix",
+    "name": "showownership.iy",
+    "description": "showownership.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/showownership.iy",
+    "message_id": "1528481980818395247"
+  },
+  {
     "author": "Tony",
     "name": "Bhop.iy",
     "description": "Makes you jump until you get exhausted",
