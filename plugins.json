@@ -1,6 +1,20 @@
 [
   {
     "author": "Felix",
+    "name": "mousetools.iy",
+    "description": "mousetools.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/mousetools.iy",
+    "message_id": "1529354950055038976"
+  },
+  {
+    "author": "Agent666_0",
+    "name": "MICUP-AITool.iy",
+    "description": "MICUP-AITool.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/MICUP-AITool.iy",
+    "message_id": "1529221541735170170"
+  },
+  {
+    "author": "Felix",
     "name": "showownership.iy",
     "description": "Shows your network ownership status of parts",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/showownership.iy",
