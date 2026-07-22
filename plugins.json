@@ -2,14 +2,14 @@
   {
     "author": "Felix",
     "name": "mousetools.iy",
-    "description": "mousetools.iy plugin for Infinite Yield",
+    "description": "Adds various commands for modifying the in game mouse or restoring it to Roblox defaults",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/mousetools.iy",
     "message_id": "1529354950055038976"
   },
   {
     "author": "Agent666_0",
     "name": "MICUP-AITool.iy",
-    "description": "MICUP-AITool.iy plugin for Infinite Yield",
+    "description": "Generate tools",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/MICUP-AITool.iy",
     "message_id": "1529221541735170170"
   },
