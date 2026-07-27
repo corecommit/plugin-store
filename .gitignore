@@ -5,3 +5,5 @@ check_bad.py
 check_overlaps.py
 fix_remaining.py
 verify.py
+
+.env
