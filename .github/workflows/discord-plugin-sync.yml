@@ -2,6 +2,8 @@ name: Discord Plugin Sync
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
 
 permissions:
   contents: write
@@ -21,7 +23,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests --quiet
+        run: pip install -r requirements.txt --quiet
 
       - name: Fetch new plugins from Discord
         env:
