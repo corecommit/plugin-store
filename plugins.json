@@ -1,5 +1,12 @@
 [
   {
+    "author": "SteamUser#9483",
+    "name": "chattr.iy",
+    "description": "chattr.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/chattr.iy",
+    "message_id": "1531721286106091611"
+  },
+  {
     "author": "Felix",
     "name": "mousetools.iy",
     "description": "Adds various commands for modifying the in game mouse or restoring it to Roblox defaults",
