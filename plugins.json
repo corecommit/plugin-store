@@ -1,5 +1,12 @@
 [
   {
+    "author": "Games",
+    "name": "CobaltFix.iy",
+    "description": "CobaltFix.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/CobaltFix.iy",
+    "message_id": "1531743900979429607"
+  },
+  {
     "author": "SteamUser#9483",
     "name": "chattr.iy",
     "description": "chattr.iy plugin for Infinite Yield",
