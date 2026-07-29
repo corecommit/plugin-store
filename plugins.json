@@ -2,14 +2,14 @@
   {
     "author": "Games",
     "name": "CobaltFix.iy",
-    "description": "CobaltFix.iy plugin for Infinite Yield",
+    "description": "I created this plugin in which the saved version of cobalt is loaded",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/CobaltFix.iy",
     "message_id": "1531743900979429607"
   },
   {
     "author": "SteamUser#9483",
     "name": "chattr.iy",
-    "description": "chattr.iy plugin for Infinite Yield",
+    "description": "Adds commands to change & list attributes using IY",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/chattr.iy",
     "message_id": "1531721286106091611"
   },
