@@ -1,6 +1,13 @@
 [
   {
     "author": "Tony",
+    "name": "PPgoto.iy",
+    "description": "PPgoto.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/PPgoto.iy",
+    "message_id": "1533911100633120920"
+  },
+  {
+    "author": "Tony",
     "name": "Pgoto.iy",
     "description": "goto through proximityprompt",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/Pgoto.iy",
