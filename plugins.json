@@ -1,5 +1,12 @@
 [
   {
+    "author": "Pops",
+    "name": "ServerDirectory.iy",
+    "description": "ServerDirectory.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/ServerDirectory.iy",
+    "message_id": "1536611337038200872"
+  },
+  {
     "author": "Tony",
     "name": "PPgoto.iy",
     "description": "PPgoto.iy plugin for Infinite Yield",
