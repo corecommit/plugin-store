@@ -4,123 +4,41 @@ local localPlayer = players.LocalPlayer
 local contentProvider = game:GetService("ContentProvider")
 local debris = game:GetService("Debris")
 
-local maxDistance = 250
-local minDistance = 7
-local maxSoundDuration = 5
-
-local activeSounds = {}
-local soundDeck = {}
-local soundIndex = 1
-
-local pitchDeck = {}
-local pitchIndex = 1
-
-local chatConnection = nil
-local sendingConnection = nil
-
-local function shuffleTable(t)
-	for i = #t, 2, -1 do
-		local j = math.random(i)
-		t[i], t[j] = t[j], t[i]
-	end
-end
-
-local function rebuildPitchDeck()
-	pitchDeck = {}
-	for i = 80, 120 do
-		table.insert(pitchDeck, i / 100)
-	end
-	shuffleTable(pitchDeck)
-	pitchIndex = 1
-end
-
-local function getNextPitch()
-	if #pitchDeck == 0 then return 1.0 end
-	local pitch = pitchDeck[pitchIndex]
-	pitchIndex = pitchIndex + 1
-	
-	if pitchIndex > #pitchDeck then
-		rebuildPitchDeck()
-	end
-	return pitch
-end
-
-local function rebuildSoundDeck()
-	soundDeck = {}
-	for id in activeSounds do
-		table.insert(soundDeck, id)
-	end
-	shuffleTable(soundDeck)
-	soundIndex = 1
-end
-
-local function getNextSound()
-	if #soundDeck == 0 then return nil end
-	local id = soundDeck[soundIndex]
-	soundIndex = soundIndex + 1
-	
-	if soundIndex > #soundDeck then
-		shuffleTable(soundDeck)
-		soundIndex = 1
-	end
-	return id
-end
-
-rebuildPitchDeck()
+local maxDistance, minDistance, maxSoundDuration = 250, 7, 5
+local playerSounds = {}
+local soundTemplates = {}
+local chatConnection, sendingConnection
 
 local function extractId(str)
+	if type(str) == "table" then str = str[1] end
 	if not str then return "" end
 	str = tostring(str):match("^%s*(.-)%s*$")
-
-	local patterns = {
-		"/asset/(%d+)",
-		"rbxassetid://(%d+)",
-		"[?&]id=(%d+)",
-		"AssetId=(%d+)"
-	}
-	for _, pat in patterns do
+	
+	for _, pat in ipairs({"/asset/(%d+)", "rbxassetid://(%d+)", "[?&]id=(%d+)", "AssetId=(%d+)", "^(%d+)$"}) do
 		local found = str:match(pat)
 		if found then return found end
 	end
-
-	local groups = {}
-	for g in str:gmatch("%d+") do
-		table.insert(groups, g)
-	end
-	if #groups == 1 then return groups[1] end
-
 	return ""
 end
 
-local function createSoundTemplate(id)
-	local template = Instance.new("Sound")
-	template.Name = "CSoundTemplate"
-	template.SoundId = "rbxassetid://" .. id
-	template.Volume = 2.5
-	template.RollOffMode = Enum.RollOffMode.InverseTapered
-	template.MinDistance = minDistance
-	template.MaxDistance = maxDistance
-	
-	activeSounds[id] = template
-	rebuildSoundDeck()
-	
-	task.spawn(function()
-		contentProvider:PreloadAsync({template})
-	end)
+local function getRandomSound(userId)
+	if not playerSounds[userId] or not next(playerSounds[userId]) then return nil end
+	local ids = {}
+	for id in pairs(playerSounds[userId]) do table.insert(ids, id) end
+	local chosenId = ids[math.random(#ids)]
+	return chosenId, playerSounds[userId][chosenId] 
 end
 
-local function playSoundAt(head, id)
-	local template = activeSounds[id]
+local function playSoundAt(head, id, volume)
+	local template = soundTemplates[id]
 	if not template then return end
 
 	local existing = head:FindFirstChild("CSound")
-	if existing then 
-		existing:Destroy() 
-	end
+	if existing then existing:Destroy() end
 
 	local sound = template:Clone()
 	sound.Name = "CSound"
-	sound.PlaybackSpeed = getNextPitch()
+	sound.Volume = volume 
 	sound.Parent = head
 	sound:Play()
 
@@ -128,17 +46,13 @@ local function playSoundAt(head, id)
 		local waited = 0
 		while sound.TimeLength == 0 and waited < 2 do
 			task.wait(0.1)
-			waited = waited + 0.1
+			waited += 0.1
 		end
 
 		local duration = sound.TimeLength > 0 and sound.TimeLength or maxSoundDuration
-
 		if duration > maxSoundDuration then
 			task.wait(maxSoundDuration)
-			if sound.Parent then
-				sound:Stop()
-				sound:Destroy()
-			end
+			if sound.Parent then sound:Destroy() end
 		else
 			debris:AddItem(sound, duration + 1)
 		end
@@ -148,129 +62,127 @@ end
 local function startListener()
 	if chatConnection or sendingConnection then return end
 
-	sendingConnection = textChatService.SendingMessage:Connect(function(msg)
-		if #soundDeck == 0 then return end
-		
+	sendingConnection = textChatService.SendingMessage:Connect(function()
+		if not next(playerSounds) then return end
+		local id, vol = getRandomSound(localPlayer.UserId)
 		local head = localPlayer.Character and localPlayer.Character:FindFirstChild("Head")
-		if not head then return end
-
-		local id = getNextSound()
-		if id then 
-			playSoundAt(head, id) 
-		end
+		if head and id then playSoundAt(head, id, vol) end
 	end)
 
 	chatConnection = textChatService.MessageReceived:Connect(function(msg)
-		if #soundDeck == 0 then return end
+		if not next(playerSounds) or not msg.TextSource or msg.TextSource.UserId == localPlayer.UserId then return end
+		
+		local userId = msg.TextSource.UserId
+		local id, vol = getRandomSound(userId)
+		if not id then return end
 
-		local source = msg.TextSource
-		if not source then return end
-
-		if source.UserId == localPlayer.UserId then return end
-
-		local sender = players:GetPlayerByUserId(source.UserId)
+		local sender = players:GetPlayerByUserId(userId)
 		local head = sender and sender.Character and sender.Character:FindFirstChild("Head")
-		if not head then return end
+		if not head or (workspace.CurrentCamera.CFrame.Position - head.Position).Magnitude >= maxDistance then return end
 
-		local dist = (workspace.CurrentCamera.CFrame.Position - head.Position).Magnitude
-		if dist >= maxDistance then return end
-
-		local id = getNextSound()
-		if id then 
-			playSoundAt(head, id) 
-		end
+		playSoundAt(head, id, vol)
 	end)
 end
 
 local function stopListener()
-	if chatConnection then
-		chatConnection:Disconnect()
-		chatConnection = nil
-	end
-	if sendingConnection then
-		sendingConnection:Disconnect()
-		sendingConnection = nil
-	end
+	if chatConnection then chatConnection:Disconnect() chatConnection = nil end
+	if sendingConnection then sendingConnection:Disconnect() sendingConnection = nil end
 end
 
-local function removeSounds(targetId)
-	for _, player in players:GetPlayers() do
-		local head = player.Character and player.Character:FindFirstChild("Head")
-		if head then
-			local sound = head:FindFirstChild("CSound")
-			if sound then
-				local matchAll = targetId == nil
-				local matchId = targetId and sound.SoundId == "rbxassetid://" .. targetId
-				if matchAll or matchId then
-					sound:Destroy()
-				end
-			end
-		end
-	end
-end
-
-local Plugin = {
+return {
 	PluginName = "chatsound",
-	PluginDescription = "make everyone sounds like Eminen😎",
+	PluginDescription = "sound after each message",
 	Commands = {
 		chatsound = {
-			ListName = "chatsound/chats [id]",
-			Description = "let them sounds like Eminen😎",
+			ListName = "chatsound/chats [player] [id] [volume]",
+			Description = "sound after each message",
 			Aliases = {"chats"},
-			Function = function(args)
-				local id = extractId(type(args) == "table" and args[1] or args)
+			Function = function(args, speaker)
+				local target, idStr, volStr
+				
+				if extractId(args[1]) ~= "" then
+					target = "all"
+					idStr = args[1]
+					volStr = args[2]
+				else
+					target = args[1] or "all"
+					idStr = args[2]
+					volStr = args[3]
+				end
+				
+				local id = extractId(idStr)
 				if id == "" then
-					if notify then notify("ChatSound", "BOOOI WHERE'S YOUR ID?!😭🙏") end
-					return
+					return notify and notify("ChatSound", "BOOOI WHERE'S YOUR ID?!😭🙏")
 				end
 
-				local ok = pcall(function()
-					return game:GetService("MarketplaceService"):GetProductInfo(tonumber(id))
-				end)
-				if not ok then
-					if notify then notify("ChatSound", "BOOOI, IS THAT ID??😂😂😂") end
-					return
+				local volume = tonumber(volStr) or 5
+				volume = math.clamp(volume, 1, 10) 
+
+				local playersList = getPlayer(target, speaker)
+				for _, plr in ipairs(playersList) do
+					local player = type(plr) == "string" and players:FindFirstChild(plr) or plr
+					if not player then continue end
+					
+					if not playerSounds[player.UserId] then playerSounds[player.UserId] = {} end
+					playerSounds[player.UserId][id] = volume
 				end
 
-				if not activeSounds[id] then
-					createSoundTemplate(id)
-					startListener()
+				if not soundTemplates[id] then
+					local template = Instance.new("Sound")
+					template.Name, template.SoundId = "CSoundTemplate", "rbxassetid://" .. id
+					template.RollOffMode, template.MinDistance, template.MaxDistance = Enum.RollOffMode.InverseTapered, minDistance, maxDistance
+					soundTemplates[id] = template
+					task.spawn(function() contentProvider:PreloadAsync({template}) end)
 				end
+				
+				startListener()
 			end
 		},
 
 		rchatsound = {
-			ListName = "rchatsound/nochats/rchats [id]",
-			Description = "DON'T let them sounds like Eminem😭",
+			ListName = "rchatsound/nochats/rchats [player] [id]",
+			Description = "removes sound after each message",
 			Aliases = {"nochats", "rchats"},
-			Function = function(args)
-				local id = extractId(type(args) == "table" and args[1] or args)
+			Function = function(args, speaker)
+				local target, idStr
+				
+				if extractId(args[1]) ~= "" then
+					target = "all"
+					idStr = args[1]
+				else
+					target = args[1] or "all"
+					idStr = args[2]
+				end
+				
+				local id = extractId(idStr)
 
-				if id == "" then
-					removeSounds(nil)
-					for _, template in activeSounds do
-						if typeof(template) == "Instance" then template:Destroy() end
+				local playersList = getPlayer(target, speaker)
+				for _, plr in ipairs(playersList) do
+					local player = type(plr) == "string" and players:FindFirstChild(plr) or plr
+					if not player then continue end
+					
+					if id == "" then
+						playerSounds[player.UserId] = nil
+					else
+						if playerSounds[player.UserId] then
+							playerSounds[player.UserId][id] = nil
+							if not next(playerSounds[player.UserId]) then
+								playerSounds[player.UserId] = nil
+							end
+						end
 					end
-					activeSounds = {}
-					soundDeck = {}
-					soundIndex = 1
-					stopListener()
-					return
+					
+					local head = player.Character and player.Character:FindFirstChild("Head")
+					local sound = head and head:FindFirstChild("CSound")
+					if sound and (id == "" or sound.SoundId == "rbxassetid://" .. id) then
+						sound:Destroy()
+					end
 				end
 
-				if activeSounds[id] then
-					removeSounds(id)
-					if typeof(activeSounds[id]) == "Instance" then activeSounds[id]:Destroy() end
-					activeSounds[id] = nil
-					rebuildSoundDeck()
-				end
-
-				if not next(activeSounds) then
+				if not next(playerSounds) then
 					stopListener()
 				end
 			end
 		}
 	}
 }
-
-return Plugin

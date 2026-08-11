@@ -1,5 +1,12 @@
 [
   {
+    "author": "Tony",
+    "name": "chatsound.iy",
+    "description": "chatsound.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/chatsound.iy",
+    "message_id": "1536683151106121729"
+  },
+  {
     "author": "Pops",
     "name": "ServerDirectory.iy",
     "description": "ServerDirectory.iy plugin for Infinite Yield",
@@ -124,13 +131,6 @@
     "description": "Levels your camera. Cuz why not?",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/wfcp.iy",
     "message_id": "1519709774567178270"
-  },
-  {
-    "author": "Tony",
-    "name": "chatsound.iy",
-    "description": "Make everyone sound like Eminem 😎",
-    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/chatsound.iy",
-    "message_id": "1519582764066672702"
   },
   {
     "author": "Tony",
