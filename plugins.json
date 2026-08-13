@@ -1,5 +1,12 @@
 [
   {
+    "author": "Pops",
+    "name": "ServerDirectory.iy",
+    "description": "ServerDirectory.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/ServerDirectory.iy",
+    "message_id": "1537428294553833562"
+  },
+  {
     "author": "wonkeyy",
     "name": "float.iy",
     "description": "float.iy plugin for Infinite Yield",
@@ -12,13 +19,6 @@
     "description": "chatsound.iy plugin for Infinite Yield",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/chatsound.iy",
     "message_id": "1536683151106121729"
-  },
-  {
-    "author": "Pops",
-    "name": "ServerDirectory.iy",
-    "description": "ServerDirectory.iy plugin for Infinite Yield",
-    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/ServerDirectory.iy",
-    "message_id": "1536611337038200872"
   },
   {
     "author": "Tony",
