@@ -1,5 +1,12 @@
 [
   {
+    "author": "illucian 3rd account",
+    "name": "StatHighlighter.iy",
+    "description": "StatHighlighter.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/StatHighlighter.iy",
+    "message_id": "1538041340577718282"
+  },
+  {
     "author": "Pops",
     "name": "ServerDirectory.iy",
     "description": "ServerDirectory.iy plugin for Infinite Yield",
