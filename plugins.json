@@ -1,5 +1,12 @@
 [
   {
+    "author": "Agent666_0",
+    "name": "IYfix.iy",
+    "description": "IYfix.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/IYfix.iy",
+    "message_id": "1539953994401714296"
+  },
+  {
     "author": "illucian 3rd account",
     "name": "StatHighlighter.iy",
     "description": "StatHighlighter.iy plugin for Infinite Yield",
