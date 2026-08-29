@@ -1,6 +1,13 @@
 [
   {
     "author": "Agent666_0",
+    "name": "akadmin.iy",
+    "description": "akadmin.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/akadmin.iy",
+    "message_id": "1543270096749723658"
+  },
+  {
+    "author": "Agent666_0",
     "name": "IYfix.iy",
     "description": "IYfix.iy plugin for Infinite Yield",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/IYfix.iy",
