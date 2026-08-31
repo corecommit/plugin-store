@@ -1,6 +1,13 @@
 [
   {
     "author": "Agent666_0",
+    "name": "dexrecontinued.iy",
+    "description": "dexrecontinued.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/dexrecontinued.iy",
+    "message_id": "1543888097643864127"
+  },
+  {
+    "author": "Agent666_0",
     "name": "akadmin.iy",
     "description": "akadmin.iy plugin for Infinite Yield",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/akadmin.iy",
