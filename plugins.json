@@ -1,5 +1,12 @@
 [
   {
+    "author": "David",
+    "name": "ProjectUAI.iy",
+    "description": "ProjectUAI.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/ProjectUAI.iy",
+    "message_id": "1546795805388709969"
+  },
+  {
     "author": "Agent666_0",
     "name": "dexrecontinued.iy",
     "description": "dexrecontinued.iy plugin for Infinite Yield",
