@@ -1,5 +1,12 @@
 [
   {
+    "author": "SteamUser#9483",
+    "name": "ProximityPrompts.iy",
+    "description": "ProximityPrompts.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/ProximityPrompts.iy",
+    "message_id": "1549050296616095744"
+  },
+  {
     "author": "David",
     "name": "ProjectUAI.iy",
     "description": "ProjectUAI.iy plugin for Infinite Yield",
