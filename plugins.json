@@ -1,6 +1,13 @@
 [
   {
     "author": "Tony",
+    "name": "killiy.iy",
+    "description": "killiy.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/killiy.iy",
+    "message_id": "1550501949349167206"
+  },
+  {
+    "author": "Tony",
     "name": "calculator.iy",
     "description": "calculator.iy plugin for Infinite Yield",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/calculator.iy",
