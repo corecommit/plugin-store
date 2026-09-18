@@ -1,5 +1,12 @@
 [
   {
+    "author": "Tony",
+    "name": "calculator.iy",
+    "description": "calculator.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/calculator.iy",
+    "message_id": "1550277322421305364"
+  },
+  {
     "author": "SteamUser#9483",
     "name": "ProximityPrompts.iy",
     "description": "ProximityPrompts.iy plugin for Infinite Yield",
