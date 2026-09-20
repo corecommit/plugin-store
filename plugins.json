@@ -1,5 +1,12 @@
 [
   {
+    "author": "mdhmcc3346",
+    "name": "pathbuilder.iy",
+    "description": "pathbuilder.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/pathbuilder.iy",
+    "message_id": "1551096564351770634"
+  },
+  {
     "author": "Tony",
     "name": "killiy.iy",
     "description": "killiy.iy plugin for Infinite Yield",
