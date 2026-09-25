@@ -1,0 +1,18 @@
+local Plugin = {
+	["PluginName"] = "Hello, World!",
+	["PluginDescription"] = 'print("Hello, World!")',
+	["Commands"] = {
+		["helloworld"] = {
+			["ListName"] = "Helloworld",
+			["Description"] = 'print("Hello, World!")',
+			["Aliases"] = {'printhelloworld'},
+			["Function"] = function(args,speaker)
+				if print ~= nil then
+					print("Hello, World!")
+				end
+			end
+		},
+	}
+}
+
+return Plugin

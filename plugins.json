@@ -1,5 +1,12 @@
 [
   {
+    "author": "Agent666_0",
+    "name": "print_hello_world.iy",
+    "description": "print_hello_world.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/print_hello_world.iy",
+    "message_id": "1553116617662275654"
+  },
+  {
     "author": "mdhmcc3346",
     "name": "pathbuilder.iy",
     "description": "pathbuilder.iy plugin for Infinite Yield",
