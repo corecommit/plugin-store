@@ -1,5 +1,19 @@
 [
   {
+    "author": "David",
+    "name": "home_guard.iy",
+    "description": "home_guard.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/home_guard.iy",
+    "message_id": "1558338376271269939"
+  },
+  {
+    "author": "David",
+    "name": "partespcolor.iy",
+    "description": "partespcolor.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/partespcolor.iy",
+    "message_id": "1558327852720726149"
+  },
+  {
     "author": "mdhmcc3346",
     "name": "minigun.iy",
     "description": "minigun.iy plugin for Infinite Yield",
