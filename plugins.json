@@ -1,5 +1,12 @@
 [
   {
+    "author": "mdhmcc3346",
+    "name": "GearGuide.iy",
+    "description": "GearGuide.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/GearGuide.iy",
+    "message_id": "1558716361637896204"
+  },
+  {
     "author": "David",
     "name": "home_guard.iy",
     "description": "home_guard.iy plugin for Infinite Yield",
