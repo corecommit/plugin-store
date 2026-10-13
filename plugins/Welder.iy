@@ -1,8 +1,9 @@
 --!strict
 
-local PhysicsService = Services.PhysicsService
-local RunService = Services.RunService
-local Players = Services.Players
+local PhysicsService = game:GetService("PhysicsService")
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local sethiddenproperty = sethiddenproperty or set_hidden_property or set_hidden_prop
 
 local CurrentWeld = nil
 local OriginalFPDH = workspace.FallenPartsDestroyHeight
@@ -49,6 +50,7 @@ local function WeldTo(TargetPart: BasePart, Offset: CFrame, Speaker: Player, Ani
 		if sethiddenproperty then
 			pcall(function()
 				sethiddenproperty(Root, "PhysicsRepRootPart", TargetPart)
+				sethiddenproperty(Root, "PhysicsRepRootRef", InstanceHandle.new(TargetPart))
 			end)
 		end
 	end)
@@ -188,6 +190,14 @@ local Plugin = {
 				end
 				workspace.FallenPartsDestroyHeight = OriginalFPDH
 				notify("Unwelded", "Stopped.")
+			end
+		},
+		["credito"] = {
+			["ListName"] = "credito",
+			["Description"] = "View script credits",
+			["Aliases"] = {"credito"},
+			["Function"] = function(args, speaker)
+				notify("Credits", "Failedmite, Janmandio, deerius")
 			end
 		}
 	}
