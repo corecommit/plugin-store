@@ -1,5 +1,12 @@
 [
   {
+    "author": "! FurryBoy",
+    "name": "timer_manipulation.iy",
+    "description": "timer_manipulation.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/timer_manipulation.iy",
+    "message_id": "1560766034078728336"
+  },
+  {
     "author": "Systemattic",
     "name": "Welder.iy",
     "description": "Welder.iy plugin for Infinite Yield",
