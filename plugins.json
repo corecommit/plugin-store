@@ -1,5 +1,12 @@
 [
   {
+    "author": "David",
+    "name": "posorbit.iy",
+    "description": "posorbit.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/posorbit.iy",
+    "message_id": "1561035729704976467"
+  },
+  {
     "author": "! FurryBoy",
     "name": "timer_manipulation.iy",
     "description": "timer_manipulation.iy plugin for Infinite Yield",
