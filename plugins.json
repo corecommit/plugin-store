@@ -1,5 +1,12 @@
 [
   {
+    "author": "! FurryBoy",
+    "name": "Tooltip_Fix.iy",
+    "description": "Tooltip_Fix.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/Tooltip_Fix.iy",
+    "message_id": "1562217885479215227"
+  },
+  {
     "author": "David",
     "name": "posorbit.iy",
     "description": "posorbit.iy plugin for Infinite Yield",
