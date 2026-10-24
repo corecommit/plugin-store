@@ -1,6 +1,13 @@
 [
   {
     "author": "LPG Daily Drinker",
+    "name": "BackwardsTrip.iy",
+    "description": "BackwardsTrip.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/BackwardsTrip.iy",
+    "message_id": "1563475647110840382"
+  },
+  {
+    "author": "LPG Daily Drinker",
     "name": "destroyallearwax.iy",
     "description": "destroyallearwax.iy plugin for Infinite Yield",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/destroyallearwax.iy",
