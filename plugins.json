@@ -1,5 +1,12 @@
 [
   {
+    "author": "lkjhgcffo",
+    "name": "movable.iy",
+    "description": "movable.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/movable.iy",
+    "message_id": "1564398432746209361"
+  },
+  {
     "author": "Aureal",
     "name": "ScrollZoom.iy",
     "description": "ScrollZoom.iy plugin for Infinite Yield",
