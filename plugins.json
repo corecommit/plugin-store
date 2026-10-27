@@ -1,5 +1,12 @@
 [
   {
+    "author": "Plugin",
+    "name": "YouShouldKickYourSelfNOW.iy",
+    "description": "YouShouldKickYourSelfNOW.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/YouShouldKickYourSelfNOW.iy",
+    "message_id": "1564546198235250791"
+  },
+  {
     "author": "lkjhgcffo",
     "name": "movable.iy",
     "description": "movable.iy plugin for Infinite Yield",

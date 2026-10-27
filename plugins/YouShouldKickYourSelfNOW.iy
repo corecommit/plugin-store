@@ -1,0 +1,23 @@
+local p = game:GetService("Players").LocalPlayer
+
+local function kik()
+    p:Kick()
+end
+    
+    
+local Plugin = {
+	["PluginName"] = "KickSelf",
+	["PluginDescription"] = "kicks yourself",
+	["Commands"] = {
+		["HearEverything"] = {
+			["ListName"] = "kick",
+			["Description"] = "kicks u",
+			["Aliases"] = {"kick"},
+			["Function"] = function(args, speaker)
+			 kik()
+			end
+		}
+	}
+}
+
+return Plugin
