@@ -1,5 +1,12 @@
 [
   {
+    "author": "Tony",
+    "name": "sessions.iy",
+    "description": "sessions.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/sessions.iy",
+    "message_id": "1565737366688112742"
+  },
+  {
     "author": "totallyuhhh",
     "name": "destroyallearwax.iy",
     "description": "destroyallearwax.iy plugin for Infinite Yield",
