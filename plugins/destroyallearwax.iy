@@ -2,42 +2,30 @@ local Players = game:GetService("Players")
 local rep = game:GetService("ReplicatedStorage")
 local wrkspace = game:GetService("Workspace")
 
-local function heareverything()
+local function blastears()
     for _, v in ipairs(rep:GetDescendants()) do
         if v:IsA("Sound") then
-            v.MaxDistance = math.huge
+            v.Volume = math.huge
         end
     end
-
+    
     for _, v in ipairs(wrkspace:GetDescendants()) do
         if v:IsA("Sound") then
-            v.MaxDistance = math.huge
-        end
-    end
-
-    for _, v in ipairs(rep:GetDescendants()) do
-        if v:IsA("Sound") then
-            v.MinDistance = math.huge
-        end
-    end
-
-    for _, v in ipairs(wrkspace:GetDescendants()) do
-        if v:IsA("Sound") then
-            v.MinDistance = math.huge
+            v.Volume = math.huge
         end
     end
 end
 
 local Plugin = {
-	["PluginName"] = "EarCleaner",
-	["PluginDescription"] = "IHEAREVERYTHING",
+	["PluginName"] = "EarBlaster",
+	["PluginDescription"] = "ICANTHEAREVERYTHINGINTHEAFTERMATH",
 	["Commands"] = {
 		["HearEverything"] = {
-			["ListName"] = "hear/heareverything",
-			["Description"] = "Makes you hear alotta things",
-			["Aliases"] = {"hear"},
+			["ListName"] = "earblast/loud",
+			["Description"] = "WARNING: loud idk",
+			["Aliases"] = {"loud"},
 			["Function"] = function(args, speaker)
-			 heareverything()
+			 blastears()
 			end
 		}
 	}
