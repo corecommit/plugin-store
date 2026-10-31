@@ -1,5 +1,12 @@
 [
   {
+    "author": "David",
+    "name": "checkpoint.iy",
+    "description": "checkpoint.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/checkpoint.iy",
+    "message_id": "1566058888883601538"
+  },
+  {
     "author": "Tony",
     "name": "sessions.iy",
     "description": "sessions.iy plugin for Infinite Yield",
