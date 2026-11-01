@@ -1,6 +1,13 @@
 [
   {
     "author": "David",
+    "name": "clickinspector.iy",
+    "description": "clickinspector.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/clickinspector.iy",
+    "message_id": "1566427959349477376"
+  },
+  {
+    "author": "David",
     "name": "checkpoint.iy",
     "description": "checkpoint.iy plugin for Infinite Yield",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/checkpoint.iy",
