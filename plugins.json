@@ -1,5 +1,12 @@
 [
   {
+    "author": "Tony",
+    "name": "mfreecam.iy",
+    "description": "mfreecam.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/mfreecam.iy",
+    "message_id": "1568412915986464920"
+  },
+  {
     "author": "wonkeyy",
     "name": "float.iy",
     "description": "float.iy plugin for Infinite Yield",
@@ -341,13 +348,6 @@
     "description": "partesp, BUT using BillBoardGui for tags objects",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/bbesp.iy",
     "message_id": "1518788109863616724"
-  },
-  {
-    "author": "Tony",
-    "name": "mfreecam.iy",
-    "description": "You can also zoom through PC, using wheel",
-    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/mfreecam.iy",
-    "message_id": "1518729293893599302"
   },
   {
     "author": "dwxdeskgroup",
