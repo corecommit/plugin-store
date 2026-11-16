@@ -1,5 +1,12 @@
 [
   {
+    "author": "wyatt",
+    "name": "newdex.iy",
+    "description": "newdex.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/newdex.iy",
+    "message_id": "1571770452714594407"
+  },
+  {
     "author": "totallyuhhh",
     "name": "VisualSay.iy",
     "description": "VisualSay.iy plugin for Infinite Yield",
