@@ -1,5 +1,12 @@
 [
   {
+    "author": "totallyuhhh",
+    "name": "RemoveLighting.iy",
+    "description": "RemoveLighting.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/RemoveLighting.iy",
+    "message_id": "1572969030967627806"
+  },
+  {
     "author": "wyatt",
     "name": "newdex.iy",
     "description": "newdex.iy plugin for Infinite Yield",
