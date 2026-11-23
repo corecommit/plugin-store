@@ -1,5 +1,12 @@
 [
   {
+    "author": "ts2021",
+    "name": "ExecInfo.iy",
+    "description": "ExecInfo.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/ExecInfo.iy",
+    "message_id": "1574460312764284959"
+  },
+  {
     "author": "totallyuhhh",
     "name": "RemoveLighting.iy",
     "description": "RemoveLighting.iy plugin for Infinite Yield",
