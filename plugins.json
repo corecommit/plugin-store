@@ -1,5 +1,12 @@
 [
   {
+    "author": "Oteb",
+    "name": "bbinds.iy",
+    "description": "bbinds.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/bbinds.iy",
+    "message_id": "1574567346226593883"
+  },
+  {
     "author": "ts2021",
     "name": "ExecInfo.iy",
     "description": "ExecInfo.iy plugin for Infinite Yield",
@@ -949,12 +956,6 @@
     "name": "TweenFlight.iy",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/TweenFlight.iy",
     "description": "Let's you fly smoother, bypassing some anti-cheats"
-  },
-  {
-    "author": "im_real.",
-    "name": "bbinds.iy",
-    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/bbinds.iy",
-    "description": "Adds button binds to the infinity yield"
   },
   {
     "author": "libertar",
