@@ -1,0 +1,79 @@
+local morsecodes = {
+	a = ".-", b = "-...", c = "-.-.", d = "-..", e = ".", f = "..-.",
+	g = "--.", h = "....", i = "..", j = ".---", k = "-.-", l = ".-..",
+	m = "--", n = "-.", o = "---", p = ".--.", q = "--.-", r = ".-.",
+	s = "...", t = "-", u = "..-", v = "...-", w = ".--", x = "-..-",
+	y = "-.--", z = "--..",
+	["0"] = "-----", ["1"] = ".----", ["2"] = "..---", ["3"] = "...--",
+	["4"] = "....-", ["5"] = ".....", ["6"] = "-....", ["7"] = "--...",
+	["8"] = "---..", ["9"] = "----.",
+	["."] = ".-.-.-", [","] = "--..--", ["?"] = "..--..", ["!"] = "-.-.--",
+	["'"] = ".----.", ['"'] = ".-..-.", ["/"] = "-..-.", ["-"] = "-....-",
+	["("] = "-.--.", [")"] = "-.--.-", [":"] = "---...", [";"] = "-.-.-.",
+	["="] = "-...-", ["+"] = ".-.-.", ["@"] = ".--.-.", ["&"] = ".-...",
+	["_"] = "..--.-", ["$"] = "...-..-",
+}
+
+local reverseMorse = {}
+for char, code in pairs(morsecodes) do
+	reverseMorse[code] = char
+end
+
+local function toMorse(text)
+	local result = {}
+	for char in string.lower(text):gmatch(".") do
+		if char == " " then
+			table.insert(result, "/")
+		elseif morsecodes[char] then
+			table.insert(result, morsecodes[char])
+		end
+	end
+	return table.concat(result, " ")
+end
+
+local function fromMorse(morseText)
+	local result = {}
+	for token in morseText:gmatch("%S+") do
+		if token == "/" then
+			table.insert(result, " ")
+		elseif reverseMorse[token] then
+			table.insert(result, reverseMorse[token])
+		else
+			table.insert(result, "?")
+		end
+	end
+	return table.concat(result)
+end
+
+local Plugin = {
+	["PluginName"] = "Morse Code Translator",
+	["PluginDescription"] = "Encode messages into Morse code and decode Morse code via notifications.",
+	["Commands"] = {
+		["morse"] = {
+			["ListName"] = "morse / morsechat [text]",
+			["Description"] = "Sends your message translated into Morse code",
+			["Aliases"] = {"morsechat"},
+			["Function"] = function(args, speaker)
+				local cString = getstring(1, args)
+				if cString and cString ~= "" then
+					local morseString = toMorse(cString)
+					chatMessage(morseString)
+				end
+			end,
+		},
+		["unmorse"] = {
+			["ListName"] = "unmorse / demorse / readmorse [text]",
+			["Description"] = "Translates Morse code into normal text and notifies it",
+			["Aliases"] = {"demorse", "readmorse"},
+			["Function"] = function(args, speaker)
+				local cString = getstring(1, args)
+				if cString and cString ~= "" then
+					local decodedString = fromMorse(cString)
+					notify("Morse Decoded", decodedString)
+				end
+			end,
+		},
+	},
+}
+
+return Plugin

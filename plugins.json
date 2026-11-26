@@ -1,5 +1,12 @@
 [
   {
+    "author": "ts2021",
+    "name": "MorseCode.iy",
+    "description": "MorseCode.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/MorseCode.iy",
+    "message_id": "1575604880675184813"
+  },
+  {
     "author": "mdhmcc3346",
     "name": "GearMenu.iy",
     "description": "GearMenu.iy plugin for Infinite Yield",
