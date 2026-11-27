@@ -1,0 +1,348 @@
+local HttpService = game:GetService("HttpService")
+local Plugin = {
+    ["PluginName"] = "AI Assistant",
+    ["PluginDescription"] = "Talk to AI models (OpenAI, Claude, Gemini, Groq, DeepSeek) inside Infinite Yield.",
+    ["Commands"] = {}
+}
+
+local configFile = "IY_AI_Config.json"
+local config = {
+    apiKey = "",
+    aiProvider = "openai",
+    aiModel = "gpt-4o-mini",
+    maxTokens = 1024
+}
+
+local function loadConfig()
+    if isfile and readfile and isfile(configFile) then
+        local ok, data = pcall(function() return HttpService:JSONDecode(readfile(configFile)) end)
+        if ok and type(data) == "table" then
+            for k, v in pairs(data) do config[k] = v end
+        end
+    end
+end
+
+local function saveConfig()
+    if writefile then
+        pcall(function() writefile(configFile, HttpService:JSONEncode(config)) end)
+    end
+end
+
+loadConfig()
+
+local FRAMEAI
+local function createAIWindow(aiResponseText)
+    local prevFrame = FRAMEAI
+    FRAMEAI = nil
+
+    if prevFrame then
+        task.spawn(function()
+            pcall(function()
+                prevFrame:TweenPosition(UDim2.new(0.5, -130, 0, -500), "InOut", "Quart", 0.5, true, nil)
+            end)
+            task.wait(0.6)
+            if prevFrame and prevFrame.Parent then
+                prevFrame:Destroy()
+            end
+        end)
+    end
+
+    task.spawn(function()
+        local frame = Instance.new("Frame")
+        FRAMEAI = frame
+
+        local shadow = Instance.new("Frame")
+        local PopupText = Instance.new("TextLabel")
+        local Exit = Instance.new("TextButton")
+        local ExitImage = Instance.new("ImageLabel")
+        local background = Instance.new("Frame")
+        local scrollFrame = Instance.new("ScrollingFrame")
+        local a = Instance.new("TextLabel")
+        local UIListLayout = Instance.new("UIListLayout")
+        local CopyResponse = Instance.new("TextButton")
+
+        frame.Name = randomString()
+        frame.Parent = ScaledHolder
+        frame.Active = true
+        frame.BackgroundTransparency = 1
+        frame.Position = UDim2.new(0.5, -130, 0, -500)
+        frame.Size = UDim2.new(0, 250, 0, 20)
+        frame.ZIndex = 10
+        dragGUI(frame)
+
+        shadow.Name = "shadow"
+        shadow.Parent = frame
+        shadow.BackgroundColor3 = currentShade2
+        shadow.BorderSizePixel = 0
+        shadow.Size = UDim2.new(0, 250, 0, 20)
+        shadow.ZIndex = 11
+        table.insert(shade2, shadow)
+
+        PopupText.Name = "PopupText"
+        PopupText.Parent = shadow
+        PopupText.BackgroundTransparency = 1
+        PopupText.Size = UDim2.new(1, 0, 0.95, 0)
+        PopupText.ZIndex = 12
+        PopupText.Font = Enum.Font.SourceSans
+        PopupText.TextSize = 14
+        PopupText.Text = "AI Response"
+        PopupText.TextColor3 = currentText1
+        PopupText.TextWrapped = true
+        table.insert(text1, PopupText)
+
+        Exit.Name = "Exit"
+        Exit.Parent = shadow
+        Exit.BackgroundTransparency = 1
+        Exit.Position = UDim2.new(1, -20, 0, 0)
+        Exit.Size = UDim2.new(0, 20, 0, 20)
+        Exit.Text = ""
+        Exit.ZIndex = 12
+
+        ExitImage.Parent = Exit
+        ExitImage.BackgroundColor3 = Color3.new(1, 1, 1)
+        ExitImage.BackgroundTransparency = 1
+        ExitImage.Position = UDim2.new(0, 5, 0, 5)
+        ExitImage.Size = UDim2.new(0, 10, 0, 10)
+        ExitImage.Image = getcustomasset("infiniteyield/assets/close.png")
+        ExitImage.ZIndex = 13
+
+        background.Name = "background"
+        background.Parent = frame
+        background.Active = true
+        background.BackgroundColor3 = currentShade1
+        background.BorderSizePixel = 0
+        background.Position = UDim2.new(0, 0, 1, 0)
+        background.Size = UDim2.new(0, 250, 0, 250)
+        background.ZIndex = 10
+        table.insert(shade1, background)
+
+        scrollFrame.Name = "ResponseScroller"
+        scrollFrame.Parent = background
+        scrollFrame.Active = true
+        scrollFrame.ClipsDescendants = true
+        scrollFrame.Selectable = true
+        scrollFrame.ScrollingEnabled = true
+        scrollFrame.ScrollingDirection = Enum.ScrollingDirection.Y
+        scrollFrame.BackgroundTransparency = 1
+        scrollFrame.BorderSizePixel = 0
+        scrollFrame.Position = UDim2.new(0, 5, 0, 10)
+        scrollFrame.Size = UDim2.new(1, -10, 1, -45)
+        scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+        scrollFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+        scrollFrame.ScrollBarThickness = 6
+        scrollFrame.VerticalScrollBarInset = Enum.ScrollBarInset.Always
+        scrollFrame.ZIndex = 15
+        table.insert(scroll, scrollFrame)
+
+        a.Name = "a"
+        a.Parent = scrollFrame
+        a.BackgroundTransparency = 1
+        a.Size = UDim2.new(1, -5, 0, 0)
+        a.AutomaticSize = Enum.AutomaticSize.Y
+        a.ZIndex = 16
+        a.Font = Enum.Font.SourceSans
+        a.Text = ""
+        a.TextColor3 = Color3.fromRGB(255, 255, 255)
+        a.TextSize = 14
+        a.TextStrokeTransparency = 0.8
+        a.TextWrapped = true
+        a.TextXAlignment = Enum.TextXAlignment.Left
+        a.TextYAlignment = Enum.TextYAlignment.Top
+        a.Visible = false
+
+        UIListLayout.Parent = scrollFrame
+        UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        UIListLayout.Padding = UDim.new(0, 4)
+
+        CopyResponse.Name = "CopyResponse"
+        CopyResponse.Parent = background
+        CopyResponse.BackgroundColor3 = currentShade2
+        CopyResponse.BorderSizePixel = 0
+        CopyResponse.Position = UDim2.new(0, 5, 1, -25)
+        CopyResponse.Size = UDim2.new(1, -10, 0, 20)
+        CopyResponse.Font = Enum.Font.SourceSans
+        CopyResponse.TextSize = 14
+        CopyResponse.Text = "Copy Entire Response"
+        CopyResponse.TextColor3 = currentText1
+        CopyResponse.ZIndex = 14
+        table.insert(shade2, CopyResponse)
+        table.insert(text1, CopyResponse)
+
+        frame:TweenPosition(UDim2.new(0.5, -130, 0, 100), "InOut", "Quart", 0.5, true, nil)
+        task.wait(0.5)
+        if not frame or not frame.Parent then return end
+
+        local cltext = tostring(aiResponseText):gsub("\r\n", "\n") .. "\n"
+        for line in cltext:gmatch("([^\n]*)\n") do
+            local newLb = a:Clone()
+            newLb.Name = "TextLabel"
+            newLb.Text = (line == "" or line:gsub("%s", "") == "") and " " or line
+            newLb.Visible = true
+            newLb.Parent = scrollFrame
+            table.insert(text1, newLb)
+        end
+
+        CopyResponse.MouseButton1Click:Connect(function()
+            toClipboard(aiResponseText)
+            CopyResponse.Text = "Copied!"
+            task.wait(1)
+            if CopyResponse and CopyResponse.Parent then
+                CopyResponse.Text = "Copy Entire Response"
+            end
+        end)
+
+        Exit.MouseButton1Click:Connect(function()
+            pcall(function()
+                frame:TweenPosition(UDim2.new(0.5, -130, 0, -500), "InOut", "Quart", 0.5, true, nil)
+            end)
+            task.wait(0.6)
+            if FRAMEAI == frame then
+                FRAMEAI = nil
+            end
+            if frame and frame.Parent then
+                frame:Destroy()
+            end
+        end)
+    end)
+end
+
+local function askAI(prompt)
+    local url, headers, bodyData
+    local provider = string.lower(config.aiProvider)
+    local maxTok = tonumber(config.maxTokens) or 1024
+
+    if provider == "openai" then
+        url = "https://api.openai.com/v1/chat/completions"
+        headers = { ["Content-Type"] = "application/json", ["Authorization"] = "Bearer " .. config.apiKey }
+        bodyData = { model = config.aiModel, messages = {{ role = "user", content = prompt }}, temperature = 0.7, max_completion_tokens = maxTok }
+    elseif provider == "groq" then
+        url = "https://api.groq.com/openai/v1/chat/completions"
+        headers = { ["Content-Type"] = "application/json", ["Authorization"] = "Bearer " .. config.apiKey }
+        bodyData = { model = config.aiModel, messages = {{ role = "user", content = prompt }}, temperature = 0.7, max_tokens = maxTok }
+    elseif provider == "deepseek" then
+        url = "https://api.deepseek.com/chat/completions"
+        headers = { ["Content-Type"] = "application/json", ["Authorization"] = "Bearer " .. config.apiKey }
+        bodyData = { model = config.aiModel, messages = {{ role = "user", content = prompt }}, temperature = 0.7, max_tokens = maxTok }
+    elseif provider == "claude" then
+        url = "https://api.anthropic.com/v1/messages"
+        headers = { ["Content-Type"] = "application/json", ["x-api-key"] = config.apiKey, ["anthropic-version"] = "2023-06-01" }
+        bodyData = { model = config.aiModel, max_tokens = maxTok, messages = {{ role = "user", content = prompt }} }
+    elseif provider == "gemini" then
+        url = "https://generativelanguage.googleapis.com/v1beta/models/" .. config.aiModel .. ":generateContent?key=" .. config.apiKey
+        headers = { ["Content-Type"] = "application/json" }
+        bodyData = { contents = {{ parts = {{ text = prompt }} }}, generationConfig = { maxOutputTokens = maxTok, temperature = 0.7 } }
+    else
+        return "Error: Unknown provider specified (" .. tostring(config.aiProvider) .. ")."
+    end
+
+    local success, response = pcall(function()
+        return httprequest({ Url = url, Method = "POST", Headers = headers, Body = HttpService:JSONEncode(bodyData) })
+    end)
+
+    if success and response then
+        local data, errno = nil, nil
+        local passed, failed = pcall(function() data = HttpService:JSONDecode(response.Body) end)
+        if not passed then errno = tostring(failed) end
+
+        if response.Success then
+            if not passed then return "Error: Invalid JSON from " .. config.aiProvider .. "\n\nError:\n" .. tostring(errno) end
+            if provider == "claude" and data and data.content and data.content[1] and data.content[1].text then
+                return data.content[1].text
+            elseif provider == "gemini" and data and data.candidates and data.candidates[1] and data.candidates[1].content and data.candidates[1].content.parts and data.candidates[1].content.parts[1].text then
+                return data.candidates[1].content.parts[1].text
+            elseif data and data.choices and data.choices[1] and data.choices[1].message and data.choices[1].message.content then
+                return data.choices[1].message.content
+            end
+            return "Error: Unexpected response structure from " .. config.aiProvider
+        else
+            if data and data.error then
+                errno = type(data.error) == "table" and (data.error.message or errno) or tostring(data.error)
+            end
+            return "Error: Fail from " .. config.aiProvider .. ".\n\nBody:\n" .. tostring(response.Body) .. "\n\nError:\n" .. tostring(errno or "Unknown API error")
+        end
+    end
+
+    return success and ("Error: Empty HTTP response from " .. config.aiProvider) or ("Error: HTTP request failed for " .. config.aiProvider .. "\n\nError:\n" .. tostring(response))
+end
+
+Plugin["Commands"]["ai"] = {
+    ["ListName"] = "ai / aimode / verity / askai / gpt [prompt]",
+    ["Description"] = "Talk to AI",
+    ["Aliases"] = {"aimode", "verity", "askai", "gpt"},
+    ["Function"] = function(args, speaker)
+        if not httprequest then return notify("Incompatible Exploit", "Your exploit does not support this command (missing request)") end
+        if not config.apiKey or config.apiKey == "" then return notify("AI", "Please set API key (apikey).") end
+        if not config.aiModel or config.aiModel == "" then return notify("AI", "Please set AI model (aimodel).") end
+        if args[1] then
+            local prompt = getstring(1)
+            task.spawn(function()
+                notify("AI Status", "Processing query...", 3)
+                createAIWindow(askAI(prompt))
+            end)
+        else
+            notify("AI", "You must give the prompt.")
+        end
+    end
+}
+
+Plugin["Commands"]["apikey"] = {
+    ["ListName"] = "apikey / aikey [key]",
+    ["Description"] = "Sets API key so the AI can function",
+    ["Aliases"] = {"aikey"},
+    ["Function"] = function(args, speaker)
+        if args[1] then
+            config.apiKey = args[1]
+            notify("AI", "API key updated successfully.")
+            saveConfig()
+        else
+            notify("AI", "Please provide a valid API key.")
+        end
+    end
+}
+
+Plugin["Commands"]["aimodel"] = {
+    ["ListName"] = "aimodel [model]",
+    ["Description"] = "Sets the AI model",
+    ["Aliases"] = {},
+    ["Function"] = function(args, speaker)
+        if args[1] then
+            config.aiModel = table.concat(args, " ")
+            notify("AI", "Model updated to: " .. config.aiModel)
+            saveConfig()
+        else
+            notify("AI", "Current model: " .. tostring(config.aiModel))
+        end
+    end
+}
+
+Plugin["Commands"]["aiprovider"] = {
+    ["ListName"] = "aiprovider [provider]",
+    ["Description"] = "Sets the AI provider (claude/deepseek/gemini/groq/openai)",
+    ["Aliases"] = {},
+    ["Function"] = function(args, speaker)
+        if args[1] then
+            config.aiProvider = string.lower(table.concat(args, " "))
+            notify("AI", "Provider updated to: " .. config.aiProvider)
+            saveConfig()
+        else
+            notify("AI", "Current provider: " .. tostring(config.aiProvider))
+        end
+    end
+}
+
+Plugin["Commands"]["maxtokens"] = {
+    ["ListName"] = "maxtokens [tokens]",
+    ["Description"] = "Sets the max number of tokens to use for an AI response",
+    ["Aliases"] = {"maxaitokens", "maxapitokens", "aitokens", "apitokens"},
+    ["Function"] = function(args, speaker)
+        if args[1] and isNumber(args[1]) then
+            config.maxTokens = tonumber(args[1])
+            notify("AI", "Maximum tokens updated successfully.")
+            saveConfig()
+        else
+            notify("AI", "Current max tokens: " .. tostring(config.maxTokens))
+        end
+    end
+}
+
+return Plugin

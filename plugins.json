@@ -1,6 +1,13 @@
 [
   {
     "author": "ts2021",
+    "name": "IY_AI.iy",
+    "description": "IY_AI.iy plugin for Infinite Yield",
+    "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/IY_AI.iy",
+    "message_id": "1575650506066493532"
+  },
+  {
+    "author": "ts2021",
     "name": "MorseCode.iy",
     "description": "MorseCode.iy plugin for Infinite Yield",
     "url": "https://raw.githubusercontent.com/corecommit/plugin-store/main/plugins/MorseCode.iy",
